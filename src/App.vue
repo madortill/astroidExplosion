@@ -1,34 +1,47 @@
 <template>
-    <div id="app">
-      <opening class="page"></opening>
-    </div>
-
+  <div id="app">
+    <opening v-if="page === 0" class="page" @next-section="page++"></opening>
+    <astroid v-else-if="page === 1" class="page" @to-map="toMap"></astroid>
+  </div>
 </template>
 
 <script>
-import Opening from "@/components/Opening.vue"
+import Opening from "@/components/Opening.vue";
+import Astroid from "@/components/Astroid.vue";
 export default {
-    name: "app",
-    components: {
-        Opening,
+  name: "app",
+  components: {
+    Opening,
+    Astroid,
+  },
+  data() {
+    return {
+      page: 0,
+    };
+  },
+  methods: {
+    toMap() {
+      console.log("map");
     }
-}
+  }
+};
 </script>
 
-<style scoped>
+<style>
 #app {
   background-image: url(/src/assets/media/app/background.svg);
   background-size: cover;
   height: 100vh;
   width: 100vw;
   font-family: "secolar";
-  font-size: 2rem;
+  font-size: 2.3rem;
   color: aliceblue;
+  overflow: hidden;
+  position: fixed;
 }
 
 html {
-	Font-size: calc(10px + 0.5vw);
-  direction: rtl;
+  font-size: calc(10px + 0.5vw);
 }
 
 @font-face {

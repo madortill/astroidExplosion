@@ -5,18 +5,18 @@
       frameborder="0"
       width="100%"
       height="100%"
-      title="start animation"
+      title="load animation"
     ></iframe>
   </div>
 </template>
 
 <script>
 export default {
-  name: "start-animation",
+  name: "load-animation",
   data() {
     return {
       // Point to the index.html file of your exported Animate project
-      animateSrc: "/animations/אנימציית פיצוץ/אנימציית פיצוץ.html",
+      animateSrc: "animations/אנימציית טעינה/אנימציית טעינה 1.html",
     };
   },
 };
@@ -24,10 +24,9 @@ export default {
 
 <style scoped>
 .animate-iframe-container {
-  /* width: 100%; */
-  height: 100%; /* Adjust this height as per your needs */
-  width: 100%;
-  position: absolute;
+  height: 150%;
+  width: 150%;
+  position: relative;
 }
 iframe {
   width: 100%;
