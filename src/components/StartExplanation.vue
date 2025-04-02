@@ -53,7 +53,7 @@ export default {
   background-image: url(/src/assets/media/opening/speech-bubble-open.svg);
   background-size: 100% 100%;
   right: 50%;
-  top: 14rem;
+  top: 8rem;
   transform: translateX(50%);
 }
 
@@ -61,7 +61,7 @@ export default {
   height: 25rem;
   position: relative;
   right: 50%;
-  top: 14rem;
+  top: 10rem;
   transform: translateX(50%);
 }
 

@@ -10,35 +10,40 @@
       @to-map="toMap"
       @next-section="page++"
     ></astroid-type>
+    <how-to-explode
+      v-if="page === 2"
+      @to-map="toMap"
+      @next-section="nextSection"
+    ></how-to-explode>
   </div>
 </template>
 
 <script>
 import AstroidExplosion from "@/components/AstroidExplosion.vue";
 import AstroidType from "@/components/AstroidType.vue";
+import HowToExplode from "@/components/HowToExplode.vue";
 
 export default {
   name: "astroid",
   components: {
     AstroidExplosion,
     AstroidType,
+    HowToExplode
   },
   data() {
     return {
-      page: 0,
+      page: 2,
     };
   },
   methods: {
     toMap() {
       this.$emit("to-map");
     },
+    nextSection() {
+      this.$emit("next-section");
+    }
   },
 };
 </script>
 
-<style scoped>
-.astroid {
-  height: 100%;
-  width: 100%;
-}
-</style>
+<style scoped></style>

@@ -84,7 +84,7 @@ export default {
 <style scoped>
 .title {
   position: relative;
-  top: 6rem;
+  top: 4rem;
   right: 50%;
   transform: translateX(50%);
   font-family: "migdal";
@@ -101,7 +101,7 @@ export default {
 
 .microcopy {
   position: relative;
-  top: 5rem;
+  top: 3rem;
   right: 19rem;
   font-size: 1.5rem;
   width: 6rem;
@@ -133,21 +133,21 @@ export default {
 
 .baby {
   position: relative;
-  bottom: 1rem;
+  bottom: 3rem;
   right: 1rem;
   width: 13rem;
 }
 
 .teen {
   position: relative;
-  bottom: 5rem;
+  bottom: 8rem;
   right: 17rem;
   width: 13rem;
 }
 
 .big {
   position: relative;
-  bottom: 10rem;
+  bottom: 15rem;
   right: 1rem;
   width: 13rem;
 }
@@ -161,7 +161,7 @@ export default {
   padding: 0.5rem 2.4rem;
   box-shadow: 3px 3px 5px black;
   position: relative;
-  right: 18rem;
-  bottom: 18rem;
+  right: 19rem;
+  bottom: 23rem;
 }
 </style>

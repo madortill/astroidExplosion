@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <opening v-if="page === 0" class="page" @next-section="page++"></opening>
-    <astroid v-else-if="page === 1" class="page" @to-map="toMap"></astroid>
+    <astroid v-else-if="page === 1" class="page" @next-section="page++" @to-map="toMap"></astroid>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      page: 0,
+      page: 1,
     };
   },
   methods: {

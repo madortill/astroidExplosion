@@ -97,7 +97,7 @@ export default {
 .yoda {
     height: 17rem;
     position: relative;
-    top: 51rem;
+    top: 48rem;
     right: 35rem;
 }
 
