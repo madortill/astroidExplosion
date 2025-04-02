@@ -41,7 +41,7 @@ export default {
     return {
       pic: 0,
       astroNum: 0,
-      titleData: ["אסטרואיד בייבי", "אסטאואיד נער מתבגר", "אסטרואיד בוגר"],
+      titleData: ["אסטרואיד בייבי", "אסטרואיד נער מתבגר", "אסטרואיד בוגר"],
       textData: [
         "אסטרואיד ממש קטן והורס רק שכונות מקומיות",
         "אסטרואיד שהוא די חרא כי הוא בכוונה מנסה להפציץ מקומות שהוא לא אוהב",
@@ -94,8 +94,6 @@ export default {
 .title {
   position: relative;
   top: -3rem;
-  right: 50%;
-  transform: translateX(50%);
   font-family: "migdal";
   color: #fec91a;
   font-size: 4rem;
@@ -107,7 +105,7 @@ export default {
 .text {
   font-size: 2.3rem;
   text-align: center;
-  margin-top: -1rem;
+  margin-top: -0.05rem;
   position: relative;
   top: -6rem;
 }
@@ -119,22 +117,25 @@ export default {
   transform: translateX(50%);
   width: 32rem;
   height: 50rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
   background-image: url(src/assets/media/app/clear-div.svg);
   background-size: 100% 100%;
 }
 
 .closeBtn {
   position: relative;
-  top: 4rem;
-  right: 3rem;
+  top: -5rem;
+  right: -2rem;
 }
 
 .astroid {
   height: 20rem;
   position: relative;
   top: -6rem;
-  right: 50%;
-  transform: translateX(50%);
 }
 .arrow-left {
   position: absolute;

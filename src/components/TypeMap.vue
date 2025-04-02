@@ -96,10 +96,7 @@ export default {
 .text {
   font-size: 1.4rem;
   text-align: center;
-  margin-top: -0.5rem;
   position: relative;
-  right: 50%;
-  transform: translateX(50%);
 }
 
 .microcopy {
@@ -131,6 +128,7 @@ export default {
 
 .astroid {
   height: 15rem;
+  display: flex;
 }
 
 .baby {
