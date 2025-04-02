@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      page: 0,
+      page: 1,
     };
   },
   methods: {
@@ -33,14 +33,14 @@ export default {
   background-size: cover;
   height: 100vh;
   width: 100vw;
-  font-family: "secolar";
   font-size: 2.3rem;
   color: aliceblue;
   overflow: hidden;
-  position: fixed;
+  position: relative;
 }
 
 html {
+  font-family: "secolar";
   font-size: calc(10px + 0.5vw);
 }
 
@@ -55,8 +55,8 @@ html {
 }
 
 .page {
-  height: 100%;
-  width: 100%;
+  /* height: 100%;
+  width: 100%; */
   z-index: 1;
 }
 </style>

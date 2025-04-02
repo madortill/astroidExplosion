@@ -1,18 +1,21 @@
 <template>
   <div class="astroid-type"></div>
-  <type-map v-if="page===0" @to-map="toMap"></type-map>
+  <type-map v-if="page === 0" @to-map="toMap" @nextPage="page++"></type-map>
+  <type-game v-if="page === 1" @to-map="toMap" @nextPage="page++"></type-game>
 </template>
 
 <script>
 import TypeMap from "@/components/TypeMap.vue";
+import TypeGame from "@/components/TypeGame.vue";
 export default {
   name: "astroid-type",
   components: {
-    TypeMap
+    TypeMap,
+    TypeGame,
   },
   data() {
     return {
-      page: 0,
+      page: 1,
     };
   },
   methods: {

@@ -37,13 +37,9 @@ export default {
 </script>
 
 <style scoped>
-.start-page {
-  height: 100%;
-  width: 100%;
-}
 
 .title {
-  position: absolute;
+  position: relative;
   top: 13rem;
   right: 50%;
   transform: translateX(50%);
@@ -57,8 +53,8 @@ export default {
 .bb8 {
   height: 18rem;
   rotate: 20deg;
-  position: absolute;
-  top: 32rem;
+  position: relative;
+  top: 14rem;
   right: 50%;
   transform: translateX(50%);
 }

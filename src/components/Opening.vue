@@ -46,10 +46,6 @@ export default {
 </script>
 
 <style scoped>
-.opening {
-  height: 100%;
-  width: 100%;
-}
 
 .load {
   position: absolute;

@@ -68,7 +68,7 @@ export default {
 
 <style scoped>
 .title {
-  position: absolute;
+  position: relative;
   top: 8rem;
   right: 50%;
   transform: translateX(50%);
@@ -78,22 +78,22 @@ export default {
   text-align: center;
 }
 .arrow-left {
-  position: absolute;
-  left: 5rem;
-  top: 34rem;
+  position: relative;
+  right: 25rem;
+  top: 4rem;
   rotate: 180deg;
 }
 .arrow-right {
-  position: absolute;
-  top: 34rem;
+  position: relative;
+  bottom: 4rem;
   right: 5rem;
 }
 
 .text {
-  position: absolute;
-  top: 18rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  top: 5rem;
+  right: 50%;
+  transform: translateX(50%);
   text-align: center;
   width: 28rem;
   font-size: 2.3rem;
@@ -107,10 +107,10 @@ export default {
 
 .astroid {
   height: 12rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 35rem;
+  position: relative;
+  right: 50%;
+  transform: translateX(50%);
+  top: 4rem;
 }
 
 .microcopy {
@@ -132,12 +132,12 @@ export default {
   } 
   to {
     height: 26rem;
-    top: 23rem;
+    top: 22rem;
   }
 }
 
 .map {
-  position: absolute;
+  position: fixed;
   top: 0.5rem;
   right: 0.5rem;
 }
@@ -148,8 +148,8 @@ export default {
 
 .map-text {
   font-size: 1.1rem;
-  position: absolute;
-  top: 3rem;
+  position: relative;
+  top: -2rem;
   right: 0.1rem;
   width: 8rem;
 }

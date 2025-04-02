@@ -85,12 +85,8 @@ export default {
 </script>
 
 <style scoped>
-.what-is-astroid {
-  height: 100%;
-  width: 100%;
-}
 .title {
-  position: absolute;
+  position: relative;
   top: 9rem;
   right: 50%;
   transform: translateX(50%);
@@ -114,10 +110,10 @@ export default {
 }
 
 .text {
-  position: absolute;
+  position: relative;
   top: 24rem;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 50%;
+  transform: translateX(50%);
   text-align: center;
   width: 25rem;
   font-size: 2.3rem;
@@ -125,18 +121,18 @@ export default {
 }
 .astroid {
   height: 26rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 23rem;
+  position: relative;
+  right: 50%;
+  transform: translateX(50%);
+  top: 10rem;
   z-index: 1;
 }
 .astroid-big {
   height: 44rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 11rem;
+  position: relative;
+  right: 50%;
+  transform: translateX(50%);
+  top: -7rem;
 }
 
 .microcopy {
@@ -154,16 +150,16 @@ export default {
 @keyframes astroid-grow {
   from {
     height: 26rem;
-    top: 23rem;
+    top: 10rem;
   }
   to {
     height: 44rem;
-    top: 11rem;
+    top: -2rem;
   }
 }
 
 .map {
-  position: absolute;
+  position: fixed;
   top: 0.5rem;
   right: 0.5rem;
 }
@@ -174,23 +170,22 @@ export default {
 
 .map-text {
   font-size: 1.1rem;
-  position: absolute;
-  top: 3rem;
-  right: 0.1rem;
+  position: relative;
+  bottom: 2rem;
   width: 8rem;
 }
 
 .arrow {
-  position: absolute;
-  top: 6.4rem;
-  left: 6rem;
+  position: relative;
+  bottom: 56rem;
+  right: 22rem;
 }
 
 .arrow-text {
   font-size: 1.8rem;
-  position: absolute;
-  top: 2.3rem;
-  left: 0.2rem;
+  position: relative;
+  bottom: 67rem;
+  right: 20rem;
   width: 11rem;
   rotate: -20deg;
 }
@@ -203,9 +198,9 @@ export default {
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
   box-shadow: 3px 3px 5px black;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 7rem;
+  position: relative;
+  right: 50%;
+  transform: translateX(50%);
+  bottom: 18rem;
 }
 </style>

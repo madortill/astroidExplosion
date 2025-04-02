@@ -15,7 +15,7 @@
           <img class="astroid" :src="big" alt="big-astroid" />
           <p class="text">אסטרואיד בוגר</p>
         </div>
-        <button v-if="visitedAll===true" class="button" @click="nextSection">לתרגול!</button>
+        <button v-if="visitedAll===true" class="button" @click="nextPage">לתרגול!</button>
     </div>
     <div class="map" @click="toMap">
       <img
@@ -25,7 +25,7 @@
       />
       <p class="map-text">מפת הלומדה</p>
     </div>
-    <type-explain v-if="infoShow" :currAstro="chosenAstro"></type-explain>
+    <type-explain v-if="infoShow" :currAstro="chosenAstro" @close-explain="infoShow=false"></type-explain>
   </div>
 </template>
 
@@ -51,8 +51,8 @@ export default {
     toMap() {
       this.$emit("to-map");
     },
-    nextSection() {
-        this.$emit("next-section");
+    nextPage() {
+        this.$emit("next-page");
     },
     toAstro(event) {
       this.chosenAstro = event.currentTarget.id;
@@ -83,8 +83,8 @@ export default {
 
 <style scoped>
 .title {
-  position: absolute;
-  top: 7rem;
+  position: relative;
+  top: 6rem;
   right: 50%;
   transform: translateX(50%);
   font-family: "migdal";
@@ -97,19 +97,22 @@ export default {
   font-size: 1.4rem;
   text-align: center;
   margin-top: -0.5rem;
+  position: relative;
+  right: 50%;
+  transform: translateX(50%);
 }
 
 .microcopy {
-  position: absolute;
-  top: 22rem;
-  left: 6rem;
+  position: relative;
+  top: 5rem;
+  right: 19rem;
   font-size: 1.5rem;
   width: 6rem;
   text-align: center;
 }
 
 .map {
-  position: absolute;
+  position: fixed;
   top: 0.5rem;
   right: 0.5rem;
 }
@@ -120,8 +123,8 @@ export default {
 
 .map-text {
   font-size: 1.1rem;
-  position: absolute;
-  top: 3rem;
+  position: relative;
+  top: -2rem;
   right: 0.1rem;
   width: 8rem;
 }
@@ -131,21 +134,24 @@ export default {
 }
 
 .baby {
-  position: absolute;
-  top: 22rem;
+  position: relative;
+  bottom: 1rem;
   right: 1rem;
+  width: 13rem;
 }
 
 .teen {
-  position: absolute;
-  top: 36rem;
-  left: 1rem;
+  position: relative;
+  bottom: 5rem;
+  right: 17rem;
+  width: 13rem;
 }
 
 .big {
-  position: absolute;
-  bottom: 1rem;
+  position: relative;
+  bottom: 10rem;
   right: 1rem;
+  width: 13rem;
 }
 
 .button {
@@ -156,8 +162,8 @@ export default {
   font-size: 1.5rem;
   padding: 0.5rem 2.4rem;
   box-shadow: 3px 3px 5px black;
-  position: absolute;
-  left: 4rem;
-  bottom: 7rem;
+  position: relative;
+  right: 18rem;
+  bottom: 18rem;
 }
 </style>
