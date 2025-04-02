@@ -133,21 +133,21 @@ export default {
 
 .baby {
   position: relative;
-  bottom: 3rem;
+  bottom: 4rem;
   right: 1rem;
   width: 13rem;
 }
 
 .teen {
   position: relative;
-  bottom: 8rem;
+  bottom: 11rem;
   right: 17rem;
   width: 13rem;
 }
 
 .big {
   position: relative;
-  bottom: 15rem;
+  bottom: 18rem;
   right: 1rem;
   width: 13rem;
 }
@@ -161,7 +161,7 @@ export default {
   padding: 0.5rem 2.4rem;
   box-shadow: 3px 3px 5px black;
   position: relative;
-  right: 19rem;
-  bottom: 23rem;
+  right: 18rem;
+  bottom: 27rem;
 }
 </style>

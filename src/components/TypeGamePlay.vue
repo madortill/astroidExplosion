@@ -9,6 +9,7 @@
       class="astroid-guess"
       :src="astroid[playCount]"
       alt="astroid"
+      @click="endGame"
       draggable="true"
       @ondragstart="dragstartHandler"
     />
@@ -61,17 +62,14 @@ export default {
   },
   methods: {
     dragstartHandler(event) {
-      console.log("here");
       event.dataTransfer.setData("text", event.target.id);
     },
 
     dragoverHandler(event) {
-      console.log("here1");
       event.preventDefault();
     },
 
     dropHandler(event) {
-      console.log("here2");
       event.preventDefault();
       const data = event.dataTransfer.getData("text");
     },

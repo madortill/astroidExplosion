@@ -201,6 +201,6 @@ export default {
   position: relative;
   right: 50%;
   transform: translateX(50%);
-  bottom: 18rem;
+  bottom: 19rem;
 }
 </style>

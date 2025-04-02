@@ -1,22 +1,22 @@
 <template>
   <div class="how-to-start">
     <p class="title">איך מפוצצים אסטרואיד ?</p>
-    <p class="text">{{text[page]}}</p>
+    <p class="text">{{ text[page] }}</p>
     <img
       @click="page++"
-      v-if="page<2"
+      v-if="page < 2"
       class="arrow-left"
       src="@/assets/media/app/arrow.svg"
       alt="arrow-left"
     />
     <img
       @click="page--"
-      v-if="page>0"
+      v-if="page > 0"
       class="arrow-right"
       src="@/assets/media/app/arrow.svg"
       alt="arrow-right"
     />
-    <button v-if="page===2" class="button" @click="nextPage">ללמידה!</button>
+    <button v-if="page === 2" class="button" @click="nextPage">ללמידה!</button>
     <img
       class="fallen-astro"
       src="@/assets/media/howToExplode/fall-astroid.svg"
@@ -129,5 +129,4 @@ export default {
   right: 8rem;
   z-index: 1;
 }
-
 </style>
