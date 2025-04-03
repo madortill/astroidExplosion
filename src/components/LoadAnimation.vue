@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       // Point to the index.html file of your exported Animate project
-      animateSrc: "animations/אנימציית טעינה/אנימציית טעינה 1.html",
+      animateSrc: "/animations/loadAnimation/loadAnimation.html",
     };
   },
 };

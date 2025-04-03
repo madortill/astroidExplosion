@@ -5359,7 +5359,7 @@ if (reversed == null) { reversed = false; }
 
 
 // stage content:
-(lib.אנימצייתטעינה1 = function(mode,startPosition,loop,reversed) {
+(lib.loadAnimation = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
 	var props = new Object();

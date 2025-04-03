@@ -54,9 +54,9 @@ export default {
     return {
       playCount: 0,
       astroid: [
-        "src/assets/media/astroidType/teen-astro3.svg",
-        "src/assets/media/astroidType/baby-astro3.svg",
-        "src/assets/media/astroidType/big-astro3.svg",
+        "/media/astroidType/teen-astro3.svg",
+        "/media/astroidType/baby-astro3.svg",
+        "/media/astroidType/big-astro3.svg",
       ],
     };
   },

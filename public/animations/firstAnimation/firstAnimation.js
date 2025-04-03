@@ -2133,7 +2133,7 @@ if (reversed == null) { reversed = false; }
 
 
 // stage content:
-(lib.אנימצייתהתחלה = function(mode,startPosition,loop,reversed) {
+(lib.firstAnimation = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
 	var props = new Object();

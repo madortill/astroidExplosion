@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       // Point to the index.html file of your exported Animate project
-      animateSrc: "/animations/אנימציית התחלה/אנימציית התחלה.html",
+      animateSrc: "/animations/firstAnimation/firstAnimation.html",
     };
   },
 };
@@ -24,7 +24,6 @@ export default {
 
 <style scoped>
 .animate-iframe-container {
-  /* width: 100%; */
   height: 100%; /* Adjust this height as per your needs */
   width: 100%;
   position: relative;

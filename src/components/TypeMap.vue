@@ -41,9 +41,9 @@ export default {
       chosenAstro: "",
       infoShow: false,
       visitedAll: false,
-      baby: "src/assets/media/astroidType/baby-astro1-glow.svg",
-      teen: "src/assets/media/astroidType/teen-astro1-glow.svg",
-      big: "src/assets/media/astroidType/big-astro1-glow.svg",
+      baby: "/media/astroidType/baby-astro1-glow.svg",
+      teen: "/media/astroidType/teen-astro1-glow.svg",
+      big: "/media/astroidType/big-astro1-glow.svg",
       visited: [],
     };
   },

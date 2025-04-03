@@ -2208,7 +2208,7 @@ if (reversed == null) { reversed = false; }
 
 
 // stage content:
-(lib.אנימצייתפיצוץ = function(mode,startPosition,loop,reversed) {
+(lib.explodeAnimation = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
 	var props = new Object();
