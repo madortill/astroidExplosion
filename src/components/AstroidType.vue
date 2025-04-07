@@ -1,7 +1,7 @@
 <template>
   <div class="astroid-type"></div>
   <type-map v-if="page === 0" @next-page="page++"></type-map>
-  <type-game v-if="page === 1" @next-section="nextSection"></type-game>
+  <type-game v-if="page === 1" @next-section="nextSection" @start-game="gameStart" @end-game="endGame"></type-game>
 </template>
 
 <script>
@@ -19,6 +19,12 @@ export default {
     };
   },
   methods: {
+    gameStart() {
+      this.$emit("start-game");
+    },
+    endGame() {
+      this.$emit("end-game");
+    },
     nextSection() {
       this.$emit("next-section");
     }

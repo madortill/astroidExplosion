@@ -111,8 +111,7 @@ export default {
 .container-map {
   position: relative;
   top: 7rem;
-  display: flex;
-  justify-content: center;
+  right: 1rem;
   width: 35rem;
 }
 
@@ -133,7 +132,7 @@ export default {
   justify-content: center;
   position: absolute;
   top: -5rem;
-  right: 11rem;
+  right: 8.5rem;
 }
 
 .button {

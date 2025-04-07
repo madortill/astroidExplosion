@@ -7,12 +7,14 @@
     <astroid-type
       v-if="page === 1"
       @next-section="page++"
+      @start-game="gameOn = true"
+      @end-game="gameOn = false"
     ></astroid-type>
     <how-to-explode
       v-if="page === 2"
       @next-section="nextSection"
     ></how-to-explode>
-    <div class="map" @click="toMap">
+    <div class="map" @click="toMap" v-if="!gameOn">
       <img class="map-icon" src="/src/assets/media/app/map-lightSaber.svg" alt="map-icon">
       <p class="map-text">מפת הלומדה</p>
     </div>
@@ -34,6 +36,7 @@ export default {
   data() {
     return {
       page: 0,
+      gameOn: false
     };
   },
   methods: {
