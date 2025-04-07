@@ -10,14 +10,6 @@
       <p class="text">הצלחת לזהות אסטרואידים בתבונה! <br> עוד רגע תהפוך לג'דיי</p>
       <button class="button" @click="nextSection">המשך בלומדה!</button>
     </div>
-    <div class="map" @click="toMap">
-      <img
-        class="map-icon"
-        src="/src/assets/media/app/map-lightSaber.svg"
-        alt="map-icon"
-      />
-      <p class="map-text">מפת הלומדה</p>
-    </div>
   </div>
 </template>
 
@@ -31,9 +23,6 @@ export default {
     };
   },
   methods: {
-    toMap() {
-      this.$emit("to-map");
-    },
     nextSection() {
       this.$emit("next-section");
     },
@@ -99,22 +88,4 @@ export default {
   transform: translateX(50%);
   bottom: 5rem;
 }
-
-.map {
-  position: fixed;
-  top: 0.5rem;
-  right: 0.5rem;
-}
-
-.map-icon {
-  height: 4rem;
-}
-
-.map-text {
-  font-size: 1.1rem;
-  position: relative;
-  bottom: 2rem;
-  width: 8rem;
-}
-
 </style>

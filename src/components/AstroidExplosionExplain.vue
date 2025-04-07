@@ -18,24 +18,14 @@
     />
     <img v-if="page<2" class="yoda" src="/src/assets/media/app/yoda.svg" alt="yoda" />
     <img
-    v-if="page === 1"
+    v-if="page > 0"
     @click="nextPage"
     class="astroid"
-    src="/src/assets/media/astroidExplostion/astroid-glow.svg"
-    alt="astroid"
-    />
-    <img
-    v-if="page === 2"
-    @click="nextPage"
-    class="astroid animation"
-    src="/src/assets/media/astroidExplostion/astroid.svg"
+    :class="page === 2 ? 'animation' : ''"
+    :src="astroidSrc"
     alt="astroid"
     />
     <p v-if="page===1" class="microcopy">לחצו עליי</p>
-    <div class="map" @click="toMap">
-      <img class="map-icon" src="/src/assets/media/app/map-lightSaber.svg" alt="map-icon">
-      <p class="map-text">מפת הלומדה</p>
-    </div>
   </div>
 </template>
 
@@ -45,6 +35,7 @@ export default {
   components: {},
   data() {
     return {
+      astroidSrc: '/media/astroidExplostion/astroid-glow.svg',
       text: [
         "שיעור פיצוץ אסטרואיד ידוע בחשיבותו בגלל הסכנה היומיומית הנשקפת לכדור הארץ בלעדיו.",
         "עשרות אלפי אסטרואידים נעים ברגע זה לכיוון הכוכב שלנו, ועליכן לדעת כיצד למנוע מהם להגיע אליו.",
@@ -55,13 +46,11 @@ export default {
   methods: {
     nextPage() {
       this.page++;
+      this.astroidSrc = '/media/astroidExplostion/astroid.svg';
       setTimeout(() => {
         this.$emit("next-page");
       }, 2000);
     },
-    toMap() {
-      this.$emit("to-map");
-    }
   },
 };
 </script>
@@ -113,6 +102,7 @@ export default {
   top: 4rem;
 }
 
+
 .microcopy {
   position: absolute;
   top: 45rem;
@@ -136,21 +126,4 @@ export default {
   }
 }
 
-.map {
-  position: fixed;
-  top: 0.5rem;
-  right: 0.5rem;
-}
-
-.map-icon {
-  height: 4rem;
-}
-
-.map-text {
-  font-size: 1.1rem;
-  position: relative;
-  top: -2rem;
-  right: 0.1rem;
-  width: 8rem;
-}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="astroid-explosion">
-    <astroid-explosion-explain v-if="page===0" @next-page="page++" @to-map="toMap"></astroid-explosion-explain>
-    <what-is-astroid v-if="page===1" @next-section="nextSection" @to-map="toMap"></what-is-astroid>
+    <astroid-explosion-explain v-if="page===0" @next-page="page++"></astroid-explosion-explain>
+    <what-is-astroid v-if="page===1" @next-section="nextSection"></what-is-astroid>
   </div>
 </template>
 
@@ -20,9 +20,6 @@ export default {
     };
   },
   methods: {
-    toMap() {
-      this.$emit("to-map");
-    },
     nextSection() {
       this.$emit("next-section");
     }

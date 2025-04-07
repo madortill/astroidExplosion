@@ -2,19 +2,20 @@
   <div class="astroid">
     <astroid-explosion
       v-if="page === 0"
-      @to-map="toMap"
       @next-section="page++"
     ></astroid-explosion>
     <astroid-type
       v-if="page === 1"
-      @to-map="toMap"
       @next-section="page++"
     ></astroid-type>
     <how-to-explode
       v-if="page === 2"
-      @to-map="toMap"
       @next-section="nextSection"
     ></how-to-explode>
+    <div class="map" @click="toMap">
+      <img class="map-icon" src="/src/assets/media/app/map-lightSaber.svg" alt="map-icon">
+      <p class="map-text">מפת הלומדה</p>
+    </div>
   </div>
 </template>
 
@@ -46,4 +47,21 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.map {
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.map-icon {
+  height: 4rem;
+}
+
+.map-text {
+  font-size: 1.1rem;
+  position: relative;
+  top: -2rem;
+  right: 0.1rem;
+  width: 8rem;
+}</style>

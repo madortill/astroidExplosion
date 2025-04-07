@@ -4,14 +4,6 @@
       <button class="button" @click="nextPage">נשמע פיצוץ!</button>
       <img class="astroid" src="@/assets/media/howToExplode/astroid.svg" alt="astroid">
     <img class="fallen-astro" src="@/assets/media/howToExplode/fall-astroid.svg" alt="astroid-fall">
-    <div class="map" @click="toMap">
-      <img
-        class="map-icon"
-        src="/src/assets/media/app/map-lightSaber.svg"
-        alt="map-icon"
-      />
-      <p class="map-text">מפת הלומדה</p>
-    </div>
   </div>
 </template>
 
@@ -23,9 +15,6 @@ export default {
     return {};
   },
   methods: {
-    toMap() {
-      this.$emit("to-map");
-    },
     nextPage() {
         this.$emit("next-page");
     }
@@ -44,23 +33,6 @@ export default {
   font-size: 4.2rem;
   text-align: center;
   z-index: 1;
-}
-
-.map {
-  position: fixed;
-  top: 0.5rem;
-  right: 0.5rem;
-}
-
-.map-icon {
-  height: 4rem;
-}
-
-.map-text {
-  font-size: 1.1rem;
-  position: relative;
-  bottom: 2rem;
-  width: 8rem;
 }
 
 .button {

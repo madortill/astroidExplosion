@@ -16,14 +16,6 @@
       src="@/assets/media/astroidType/yoda-youGotIt.svg"
       alt="yoda"
     />
-    <div class="map" @click="toMap">
-        <img
-        class="map-icon"
-        src="/src/assets/media/app/map-lightSaber.svg"
-        alt="map-icon"
-        />
-        <p class="map-text">מפת הלומדה</p>
-    </div>
   </div>
 </template>
 
@@ -38,9 +30,6 @@ export default {
     };
   },
   methods: {
-    toMap() {
-      this.$emit("to-map");
-    },
     nextPage() {
         this.startGame = true;
         setTimeout(() => {
@@ -52,23 +41,6 @@ export default {
 </script>
 
 <style scoped>
-
-.map {
-  position: fixed;
-  top: 0.5rem;
-  right: 0.5rem;
-}
-
-.map-icon {
-  height: 4rem;
-}
-
-.map-text {
-  font-size: 1.1rem;
-  position: relative;
-  bottom: 2rem;
-  width: 8rem;
-}
 
 .button {
   background-color: #fec91a;

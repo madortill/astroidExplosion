@@ -2,32 +2,34 @@
   <div class="type-explain">
     <div class="background">
       <p class="closeBtn" @click="close">X</p>
-      <p class="title">{{ titleData[astroNum] }}</p>
+      <p class="title">{{ titleData[currAstro] }}</p>
       <img
         v-if="pic === 0"
         class="astroid"
-        :src="pic1Data[astroNum]"
+        :src="pic1Data[currAstro]"
         alt="img1"
       />
       <img
         v-if="pic === 1"
         class="astroid"
-        :src="pic2Data[astroNum]"
+        :src="pic2Data[currAstro]"
         alt="img2"
       />
       <img
-        @click="changePic"
+      v-if="pic === 0"
+        @click="pic++"
         class="arrow-left"
         src="/src/assets/media/app/arrow.svg"
         alt="arrow-left"
       />
       <img
-        @click="changePic"
+        v-if="pic === 1"
+        @click="pic--"
         class="arrow-right"
         src="/src/assets/media/app/arrow.svg"
         alt="arrow-right"
       />
-      <p class="text">{{ textData[astroNum] }}</p>
+      <p class="text">{{ textData[currAstro] }}</p>
     </div>
   </div>
 </template>
@@ -40,7 +42,6 @@ export default {
   data() {
     return {
       pic: 0,
-      astroNum: 0,
       titleData: ["אסטרואיד בייבי", "אסטרואיד נער מתבגר", "אסטרואיד בוגר"],
       textData: [
         "אסטרואיד ממש קטן והורס רק שכונות מקומיות",
@@ -70,22 +71,6 @@ export default {
     close() {
       this.$emit("close-explain");
     },
-  },
-  mounted() {
-    switch (this.currAstro) {
-      case "baby":
-        this.astroNum = 0;
-        break;
-      case "teen":
-        this.astroNum = 1;
-        break;
-      case "big":
-        this.astroNum = 2;
-        break;
-
-      default:
-        break;
-    }
   },
 };
 </script>

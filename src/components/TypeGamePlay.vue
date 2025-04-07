@@ -5,42 +5,16 @@
       src="@/assets/media/astroidType/find-the-astroid-logo.svg"
       alt="logo"
     />
-    <img
-      class="astroid-guess"
-      :src="astroid[playCount]"
-      alt="astroid"
-      @click="endGame"
-      draggable="true"
-      @ondragstart="dragstartHandler"
-    />
+    <img class="astroid-guess" :src="astroidSrc[playCount]" alt="astroid" @click="endGame"/>
     <div class="astro-container">
       <div
-        class="astroid baby"
-        @ondrop="dropHandler"
-        @ondragover="dragoverHandler"
+        v-for="(astroid, index) in astroids"
+        :id="index"
+        :key="index"
+        class="astroid"
       >
-        <img
-          class="astro-img"
-          src="@/assets/media/astroidType/baby-toy.svg"
-          alt="toy"
-        />
-        <p class="astro-text">בייבי</p>
-      </div>
-      <div class="astroid teen">
-        <img
-          class="astro-img"
-          src="@/assets/media/astroidType/teen-ear.svg"
-          alt="ear"
-        />
-        <p class="astro-text">נער מתבגר</p>
-      </div>
-      <div class="astroid big">
-        <img
-          class="astro-img"
-          src="@/assets/media/astroidType/horn.svg"
-          alt="horn"
-        />
-        <p class="astro-text">בוגר</p>
+        <img :src="src[index]" alt="astroid" class="astro-img" />
+        <p class="astro-text">{{ text[index] }}</p>
       </div>
     </div>
   </div>
@@ -53,27 +27,23 @@ export default {
   data() {
     return {
       playCount: 0,
-      astroid: [
+      selected: "",
+      astroidSrc: [
         "/media/astroidType/teen-astro3.svg",
         "/media/astroidType/baby-astro3.svg",
         "/media/astroidType/big-astro3.svg",
       ],
+      astroids: ["baby", "teen", "big"],
+      text: ["בייבי", "נער מתבגר", "בוגר"],
+      src: [
+        "/media/astroidType/baby-toy.svg",
+        "/media/astroidType/teen-ear.svg",
+        "/media/astroidType/horn.svg",
+      ],
     };
   },
   methods: {
-    dragstartHandler(event) {
-      event.dataTransfer.setData("text", event.target.id);
-    },
-
-    dragoverHandler(event) {
-      event.preventDefault();
-    },
-
-    dropHandler(event) {
-      event.preventDefault();
-      const data = event.dataTransfer.getData("text");
-    },
-    endGame() {
+    endGame(ev) {
       this.$emit("next-page");
     },
   },
@@ -91,7 +61,7 @@ export default {
 
 .astro-container {
   position: relative;
-  top: 12rem;
+  top: 42rem;
   display: flex;
   justify-content: space-around;
 }
@@ -114,9 +84,13 @@ export default {
 
 .astroid-guess {
   height: 25rem;
-  position: relative;
-  top: 6rem;
+  position: absolute;
+  top: 17rem;
   right: 50%;
   transform: translateX(50%);
+}
+
+.drop-zone-active {
+  border: 3px dashed #ffffff;
 }
 </style>

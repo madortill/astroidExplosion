@@ -1,31 +1,21 @@
 <template>
   <div class="type-map">
     <div v-if="!infoShow">
-        <p class="title">סוגי אסטרואידים</p>
-        <p class="microcopy">לחצו על האסטרואידים</p>
-        <div id="baby" class="baby" @click="toAstro">
-          <img class="astroid" :src="baby" alt="baby-astroid" />
-          <p class="text">אסטרואיד בייבי</p>
-        </div>
-        <div id="teen" class="teen" @click="toAstro">
-          <img class="astroid" :src="teen" alt="teen-astroid" />
-          <p class="text">אסטרואיד נער מתבגר</p>
-        </div>
-        <div id="big" class="big" @click="toAstro">
-          <img class="astroid" :src="big" alt="big-astroid" />
-          <p class="text">אסטרואיד בוגר</p>
-        </div>
-        <button v-if="visitedAll===true" class="button" @click="nextPage">לתרגול!</button>
+      <p class="title">סוגי אסטרואידים</p>
+      <p class="microcopy">לחצו על האסטרואידים</p>
+      <div v-for="(astroid, index) in astroids" :key="index" :id="index" :class="astroid" @click="toAstro">
+        <img :src="src[index]" alt="astroid" class="astroid">
+        <p class="text">{{ text[index] }}</p>
+      </div>
+      <button v-if="visitedAll === true" class="button" @click="nextPage">
+        לתרגול!
+      </button>
     </div>
-    <div class="map" @click="toMap">
-      <img
-        class="map-icon"
-        src="/src/assets/media/app/map-lightSaber.svg"
-        alt="map-icon"
-      />
-      <p class="map-text">מפת הלומדה</p>
-    </div>
-    <type-explain v-if="infoShow" :currAstro="chosenAstro" @close-explain="infoShow=false"></type-explain>
+    <type-explain
+      v-if="infoShow"
+      :currAstro="chosenAstro"
+      @close-explain="infoShow = false"
+    ></type-explain>
   </div>
 </template>
 
@@ -34,44 +24,29 @@ import TypeExplain from "@/components/TypeExplain.vue";
 export default {
   name: "type-map",
   components: {
-    TypeExplain
+    TypeExplain,
   },
   data() {
     return {
       chosenAstro: "",
       infoShow: false,
       visitedAll: false,
-      baby: "/media/astroidType/baby-astro1-glow.svg",
-      teen: "/media/astroidType/teen-astro1-glow.svg",
-      big: "/media/astroidType/big-astro1-glow.svg",
+      astroids: ["baby", "teen", "big"],
+      text: ["אסטרואיד בייבי", "אסטרואיד נער מתבגר", "אסטרואיד בוגר"],
+      src: ["/media/astroidType/baby-astro1-glow.svg", "/media/astroidType/teen-astro1-glow.svg", "/media/astroidType/big-astro1-glow.svg"],
       visited: [],
     };
   },
   methods: {
-    toMap() {
-      this.$emit("to-map");
-    },
     nextPage() {
-        this.$emit("next-page");
+      this.$emit("next-page");
     },
     toAstro(event) {
       this.chosenAstro = event.currentTarget.id;
       this.infoShow = true;
-      if (!this.visited.includes(event.currentTarget.id)) {
-        this.visited.push(event.currentTarget.id);
-        switch (event.currentTarget.id) {
-          case "baby":
-            this.baby = "src/assets/media/astroidType/baby-astro1.svg";
-            break;
-          case "teen":
-            this.teen = "src/assets/media/astroidType/teen-astro1.svg";
-            break;
-          case "big":
-            this.big = "src/assets/media/astroidType/big-astro1.svg";
-            break;
-          default:
-            break;
-        }
+      if (!this.visited.includes(event.currentTarget.classList)) {
+        this.visited.push(event.currentTarget.classList);
+        this.src[event.currentTarget.id] = `/media/astroidType/${event.currentTarget.classList}-astro1.svg`;
       }
       if (this.visited.length > 2) {
         this.visitedAll = true;
@@ -106,24 +81,6 @@ export default {
   font-size: 1.5rem;
   width: 6rem;
   text-align: center;
-}
-
-.map {
-  position: fixed;
-  top: 0.5rem;
-  right: 0.5rem;
-}
-
-.map-icon {
-  height: 4rem;
-}
-
-.map-text {
-  font-size: 1.1rem;
-  position: relative;
-  top: -2rem;
-  right: 0.1rem;
-  width: 8rem;
 }
 
 .astroid {

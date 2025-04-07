@@ -1,9 +1,9 @@
 <template>
     <div class="type-game"></div>
-    <type-game-start v-if="page===0" @to-map="toMap" @next-page="page++"></type-game-start>
-    <type-game-explain v-if="page===1" @to-map="toMap" @next-page="page++"></type-game-explain>
+    <type-game-start v-if="page===0" @next-page="page++"></type-game-start>
+    <type-game-explain v-if="page===1" @next-page="page++"></type-game-explain>
     <type-game-play v-if="page===2" @next-page="page++"></type-game-play>
-    <type-game-end v-if="page===3" @to-map="toMap" @next-section="nextSection"></type-game-end>
+    <type-game-end v-if="page===3" @next-section="nextSection"></type-game-end>
   </template>
   
   <script>
@@ -25,9 +25,6 @@
       };
     },
     methods: {
-      toMap() {
-        this.$emit("to-map");
-      },
       nextSection() {
         this.$emit("next-section");
       }

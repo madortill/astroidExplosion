@@ -13,39 +13,11 @@
         alt="horn"
       />
       <p class="text">גרור את האסטרואיד לסל הנכון על פי סוגו ומאפייניו</p>
-      <div class="astroid baby">
-        <img
-          class="astro-img"
-          src="@/assets/media/astroidType/baby-toy.svg"
-          alt="toy"
-        />
-        <p class="astro-text">בייבי</p>
-      </div>
-      <div class="astroid teen">
-        <img
-          class="astro-img"
-          src="@/assets/media/astroidType/teen-ear.svg"
-          alt="ear"
-        />
-        <p class="astro-text">נער מתבגר</p>
-      </div>
-      <div class="astroid big">
-        <img
-          class="astro-img big-img"
-          src="@/assets/media/astroidType/horn.svg"
-          alt="horn"
-        />
-        <p class="astro-text">בוגר</p>
+      <div v-for="(astroid, index) in astroids" :key="index" :class="astroid" class="astroid">
+        <img :src="src[index]" alt="astroid" class="astro-img">
+        <p class="astro-text">{{ text[index] }}</p>
       </div>
       <button class="button" @click="nextPage">למשחק!</button>
-    </div>
-    <div class="map" @click="toMap">
-      <img
-        class="map-icon"
-        src="/src/assets/media/app/map-lightSaber.svg"
-        alt="map-icon"
-      />
-      <p class="map-text">מפת הלומדה</p>
     </div>
   </div>
 </template>
@@ -56,13 +28,12 @@ export default {
   components: {},
   data() {
     return {
-      page: 0,
+      astroids: ["baby", "teen", "big"],
+      text: ["בייבי", "נער מתבגר", "בוגר"],
+      src: ["/media/astroidType/baby-toy.svg", "/media/astroidType/teen-ear.svg", "/media/astroidType/horn.svg"],
     };
   },
   methods: {
-    toMap() {
-      this.$emit("to-map");
-    },
     nextPage() {
       this.$emit("next-page");
     },
@@ -133,23 +104,6 @@ export default {
   right: 50%;
   transform: translateX(50%);
   bottom: 26rem;
-}
-
-.map {
-  position: fixed;
-  top: 0.5rem;
-  right: 0.5rem;
-}
-
-.map-icon {
-  height: 4rem;
-}
-
-.map-text {
-  font-size: 1.1rem;
-  position: relative;
-  bottom: 2rem;
-  width: 8rem;
 }
 
 .astroid {

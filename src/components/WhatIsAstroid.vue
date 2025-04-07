@@ -26,7 +26,7 @@
     />
     <img
       v-if="page > 0"
-      @click="page++"
+      @click-once="page++"
       class="astroid-big"
       src="@/assets/media/astroidExplostion/astroid-blank.svg"
       alt="astroid"
@@ -42,14 +42,6 @@
     <button v-if="page === 2" class="button" @click="nextSection">
       הבנתי!
     </button>
-    <div class="map" @click="toMap">
-      <img
-        class="map-icon"
-        src="/src/assets/media/app/map-lightSaber.svg"
-        alt="map-icon"
-      />
-      <p class="map-text">מפת הלומדה</p>
-    </div>
   </div>
 </template>
 
@@ -73,9 +65,6 @@ export default {
       setTimeout(() => {
         this.page++;
       }, 2000);
-    },
-    toMap() {
-      this.$emit("to-map");
     },
     nextSection() {
       this.$emit("next-section");
