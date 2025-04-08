@@ -63,10 +63,10 @@ export default {
     checkAns(event) {
       this.showAstro = false;
       if (event == undefined || this.astroidOrder[this.playCount] !== event.target.id) {
-        this.yoda = "/media/astroidType/yoda-wrong.svg";
+        this.yoda = "./media/astroidType/yoda-wrong.svg";
       } else {
         this.playCount++;
-        this.yoda = "/media/astroidType/yoda-right.svg";
+        this.yoda = "./media/astroidType/yoda-right.svg";
       }
     },
     nextStep() {
