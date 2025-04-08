@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       // Point to the index.html file of your exported Animate project
-      animateSrc: "/animations/firstAnimation/firstAnimation.html",
+      animateSrc: "./animations/firstAnimation/firstAnimation.html",
     };
   },
 };

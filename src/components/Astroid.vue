@@ -15,7 +15,11 @@
       @next-section="nextSection"
     ></how-to-explode>
     <div class="map" @click="toMap" v-if="!gameOn">
-      <img class="map-icon" src="/src/assets/media/app/map-lightSaber.svg" alt="map-icon">
+      <img
+        class="map-icon"
+        src="/src/assets/media/app/map-lightSaber.svg"
+        alt="map-icon"
+      />
       <p class="map-text">מפת הלומדה</p>
     </div>
   </div>
@@ -31,12 +35,12 @@ export default {
   components: {
     AstroidExplosion,
     AstroidType,
-    HowToExplode
+    HowToExplode,
   },
   data() {
     return {
       page: 0,
-      gameOn: false
+      gameOn: false,
     };
   },
   methods: {
@@ -45,7 +49,7 @@ export default {
     },
     nextSection() {
       this.$emit("next-section");
-    }
+    },
   },
 };
 </script>
@@ -67,4 +71,5 @@ export default {
   top: -2rem;
   right: 0.1rem;
   width: 8rem;
-}</style>
+}
+</style>

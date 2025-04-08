@@ -1,18 +1,22 @@
 <template>
   <div id="app">
     <opening v-if="page === 0" class="page" @next-section="page++"></opening>
-    <astroid v-else-if="page === 1" class="page" @next-section="page++" @to-map="toMap"></astroid>
+    <astroid v-if="page === 1" class="page" @next-section="page++" @to-map="toMap"></astroid>
+    <final-exar v-if="page === 2" class="page" @next-section="page++" @to-map="toMap"></final-exar>
+
   </div>
 </template>
 
 <script>
 import Opening from "@/components/Opening.vue";
 import Astroid from "@/components/Astroid.vue";
+import FinalExar from "@/components/FinalExar.vue";
 export default {
   name: "app",
   components: {
     Opening,
     Astroid,
+    FinalExar
   },
   data() {
     return {
@@ -55,8 +59,6 @@ html {
 }
 
 .page {
-  /* height: 100%;
-  width: 100%; */
   z-index: 1;
 }
 </style>

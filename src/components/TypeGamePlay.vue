@@ -5,16 +5,29 @@
       src="@/assets/media/astroidType/find-the-astroid-logo.svg"
       alt="logo"
     />
-    <img class="astroid-guess" :src="astroidSrc[playCount]" alt="astroid" @click="endGame"/>
+    <p class="clock" v-if="showAstro">{{ `0:0${time}` }}</p>
+    <img
+      class="astroid-guess"
+      :src="astroidSrc[playCount]"
+      alt="astroid"
+      v-show="showAstro"
+    />
+    <img
+      class="yoda-animation yoda"
+      :src="yoda"
+      alt="yoda"
+      v-show="!showAstro"
+      @animationend="nextStep"
+    />
     <div class="astro-container">
       <div
         v-for="(astroid, index) in astroids"
-        :id="index"
         :key="index"
         class="astroid"
+        @click="checkAns"
       >
-        <img :src="src[index]" alt="astroid" class="astro-img" />
-        <p class="astro-text">{{ text[index] }}</p>
+        <img :src="src[index]" alt="astroid" class="astro-img" :id="index" />
+        <p class="astro-text" :id="index">{{ text[index] }}</p>
       </div>
     </div>
   </div>
@@ -26,13 +39,17 @@ export default {
   components: {},
   data() {
     return {
+      time: 4,
+      showAstro: true,
       playCount: 0,
       selected: "",
+      yoda: "",
       astroidSrc: [
         "/media/astroidType/teen-astro3.svg",
         "/media/astroidType/baby-astro3.svg",
         "/media/astroidType/big-astro3.svg",
       ],
+      astroidOrder: ["1", "0", "2"],
       astroids: ["baby", "teen", "big"],
       text: ["בייבי", "נער מתבגר", "בוגר"],
       src: [
@@ -43,8 +60,38 @@ export default {
     };
   },
   methods: {
-    endGame(ev) {
+    checkAns(event) {
+      this.showAstro = false;
+      if (event == undefined || this.astroidOrder[this.playCount] !== event.target.id) {
+        this.yoda = "/media/astroidType/yoda-wrong.svg";
+      } else {
+        this.playCount++;
+        this.yoda = "/media/astroidType/yoda-right.svg";
+      }
+    },
+    nextStep() {
+      if (this.playCount === 4) {
+        this.endGame();
+      } else {
+        this.showAstro = true;
+        this.time = 4;
+      }
+    },
+    endGame() {
+      console.log("here");
       this.$emit("next-page");
+    },
+  },
+  computed: {
+    time() {
+      setTimeout(() => {
+        if (this.time !== 0) {
+          this.time--;
+        } else {
+          this.checkAns();
+        }
+      }, 1000);
+      return this.time;
     },
   },
 };
@@ -82,15 +129,47 @@ export default {
   margin-top: -0.2rem;
 }
 
+.yoda {
+  position: absolute;
+  top: 20rem;
+  height: 22rem;
+  left: -22rem;
+}
+
 .astroid-guess {
   height: 25rem;
   position: absolute;
-  top: 17rem;
+  top: 19rem;
   right: 50%;
   transform: translateX(50%);
 }
 
 .drop-zone-active {
   border: 3px dashed #ffffff;
+}
+
+.yoda-animation {
+  animation: yodaMove 3.5s;
+}
+
+@keyframes yodaMove {
+  0% {
+    left: -22rem;
+  }
+  40% {
+    left: 6rem;
+  }
+  60% {
+    left: 6rem;
+  }
+  100% {
+    left: -22rem;
+  }
+}
+
+.clock {
+  position: absolute;
+  top: 10rem;
+  left: 4rem;
 }
 </style>

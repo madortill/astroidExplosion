@@ -4,13 +4,13 @@
       <p class="closeBtn" @click="close">X</p>
       <p class="title">{{ titleData[currAstro] }}</p>
       <img
-        v-if="pic === 0"
+        v-show="pic === 0"
         class="astroid"
         :src="pic1Data[currAstro]"
         alt="img1"
       />
       <img
-        v-if="pic === 1"
+        v-show="pic === 1"
         class="astroid"
         :src="pic2Data[currAstro]"
         alt="img2"

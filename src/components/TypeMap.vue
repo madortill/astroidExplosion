@@ -33,7 +33,7 @@ export default {
       visitedAll: false,
       astroids: ["baby", "teen", "big"],
       text: ["אסטרואיד בייבי", "אסטרואיד נער מתבגר", "אסטרואיד בוגר"],
-      src: ["/media/astroidType/baby-astro1-glow.svg", "/media/astroidType/teen-astro1-glow.svg", "/media/astroidType/big-astro1-glow.svg"],
+      src: ["/media/astroidType/baby-astro1-glow_1.svg", "/media/astroidType/teen-astro1-glow_1.svg", "/media/astroidType/big-astro1-glow_1.svg"],
       visited: [],
     };
   },

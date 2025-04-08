@@ -1,31 +1,34 @@
 <template>
-  <div class="how-to-start">
-    <p class="title">איך מפוצצים אסטרואיד ?</p>
-    <button class="button" @click="nextPage">נשמע פיצוץ!</button>
-    <img
-      class="astroid"
-      src="@/assets/media/howToExplode/astroid.svg"
-      alt="astroid"
-    />
+  <div class="final-start">
+    <p class="title">תרגול מסכם</p>
+    <button class="button" @click="nextPage">יהיה טיל!</button>
     <img
       class="fallen-astro"
-      src="@/assets/media/howToExplode/fall-astroid.svg"
+      src="@/assets/media/finalExar/fallen-astro.svg"
       alt="astroid-fall"
+    />
+    <img
+      class="cannon"
+      src="@/assets/media/finalExar/cannon.svg"
+      alt="cannon"
     />
   </div>
 </template>
 
 <script>
 export default {
-  name: "how-to-start",
+  name: "final-start",
   components: {},
   data() {
-    return {};
+    return {
+      page: 0,
+    };
   },
   methods: {
     nextPage() {
       this.$emit("next-page");
     },
+    toMap() {},
   },
 };
 </script>
@@ -33,7 +36,7 @@ export default {
 <style scoped>
 .title {
   position: relative;
-  top: 17rem;
+  top: 16rem;
   right: 50%;
   transform: translateX(50%);
   font-family: "migdal";
@@ -51,23 +54,23 @@ export default {
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
   box-shadow: 3px 3px 5px black;
-  position: relative;
+  position: absolute;
   right: 50%;
   transform: translateX(50%);
-  top: 7rem;
-}
-
-.astroid {
-  height: 12rem;
-  position: relative;
-  bottom: 3rem;
-  right: 15rem;
+  top: 30rem;
 }
 
 .fallen-astro {
-  height: 16rem;
+  height: 18rem;
   position: relative;
-  top: 3rem;
-  left: 5rem;
+  top: 15rem;
+  right: 18rem;
+}
+
+.cannon {
+  height: 10rem;
+  position: relative;
+  top: 22rem;
+  right: 1rem;
 }
 </style>

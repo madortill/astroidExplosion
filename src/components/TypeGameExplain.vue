@@ -12,7 +12,7 @@
         src="@/assets/media/astroidType/big-horn.svg"
         alt="horn"
       />
-      <p class="text">גרור את האסטרואיד לסל הנכון על פי סוגו ומאפייניו</p>
+      <p class="text">לחץ על סוג האסטרואיד הנכון על פי מאפייניו</p>
       <div v-for="(astroid, index) in astroids" :key="index" :class="astroid" class="astroid">
         <img :src="src[index]" alt="astroid" class="astro-img">
         <p class="astro-text">{{ text[index] }}</p>
@@ -103,7 +103,7 @@ export default {
   position: relative;
   right: 50%;
   transform: translateX(50%);
-  bottom: 26rem;
+  bottom: 27rem;
 }
 
 .astroid {
