@@ -2,17 +2,18 @@
   <div class="astroid">
     <astroid-explosion
       v-if="page === 0"
-      @next-section="page++"
+      @next-section="nextPage"
     ></astroid-explosion>
+    <what-is-astroid v-if="page===1" @next-section="nextPage"></what-is-astroid>
     <astroid-type
-      v-if="page === 1"
-      @next-section="page++"
+      v-if="page === 2"
+      @next-section="nextPage"
       @start-game="gameOn = true"
       @end-game="gameOn = false"
     ></astroid-type>
     <how-to-explode
-      v-if="page === 2"
-      @next-section="nextSection"
+      v-if="page === 3"
+      @next-section="nextPage"
     ></how-to-explode>
     <div class="map" @click="toMap" v-if="!gameOn">
       <img
@@ -29,6 +30,7 @@
 import AstroidExplosion from "@/components/AstroidExplosion.vue";
 import AstroidType from "@/components/AstroidType.vue";
 import HowToExplode from "@/components/HowToExplode.vue";
+import WhatIsAstroid from "@/components/WhatIsAstroid.vue";
 
 export default {
   name: "astroid",
@@ -36,7 +38,9 @@ export default {
     AstroidExplosion,
     AstroidType,
     HowToExplode,
+    WhatIsAstroid
   },
+  props: ['newPage'],
   data() {
     return {
       page: 0,
@@ -47,10 +51,27 @@ export default {
     toMap() {
       this.$emit("to-map");
     },
-    nextSection() {
-      this.$emit("next-section");
+    nextPage() {
+      if (this.page === 2) {
+        this.$emit("next-section");
+      } else {
+        this.page++;
+        this.nextStep();
+      }
+
     },
+    nextStep() {
+      this.$emit("next-part");
+    }
   },
+  computed: {
+    toPage() {
+      if (this.newPage !== -1) {
+        this.page = this.newPage;
+      }
+      return this.page;
+    }
+  }
 };
 </script>
 

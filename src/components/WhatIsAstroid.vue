@@ -26,7 +26,6 @@
     />
     <img
       v-if="page > 0"
-      @click-once="page++"
       class="astroid-big"
       src="@/assets/media/astroidExplostion/astroid-blank.svg"
       alt="astroid"

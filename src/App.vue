@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <opening v-if="page === 0" class="page" @next-section="page++"></opening>
-    <astroid v-if="page === 1" class="page" @next-section="page++" @to-map="toMap"></astroid>
-    <final-exar v-if="page === 2" class="page" @next-section="page++" @to-map="toMap"></final-exar>
-
+    <opening v-if="page === 0" v-show="!showMap" class="page" @next-section="page++"></opening>
+    <astroid v-if="page === 1" v-show="!showMap" class="page" @next-section="page++" @to-map="toMap" @next-part="step++" :newPage="newPage"></astroid>
+    <final-exar v-if="page === 2" v-show="!showMap" class="page" @next-section="page++" @to-map="toMap"></final-exar>
+    <map-dir v-if="showMap" class="page" :currStep="step" @close-map="showMap = false" @to-page="toPage"></map-dir>
   </div>
 </template>
 
@@ -11,21 +11,31 @@
 import Opening from "@/components/Opening.vue";
 import Astroid from "@/components/Astroid.vue";
 import FinalExar from "@/components/FinalExar.vue";
+import MapDir from "@/components/MapDir.vue";
 export default {
   name: "app",
   components: {
     Opening,
     Astroid,
-    FinalExar
+    FinalExar,
+    MapDir
   },
   data() {
     return {
       page: 0,
+      showMap: false,
+      step: 0,
+      newPage: -1,
     };
   },
   methods: {
     toMap() {
-      console.log("map");
+      this.showMap = true;
+    },
+    toPage(page) {
+      this.page = 1;
+      this.newPage = page;
+      console.log(this.newPage);
     }
   }
 };
