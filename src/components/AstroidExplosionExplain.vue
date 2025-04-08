@@ -35,7 +35,7 @@ export default {
   components: {},
   data() {
     return {
-      astroidSrc: '/media/astroidExplostion/astroid-glow.svg',
+      astroidSrc: './media/astroidExplostion/astroid-glow.svg',
       text: [
         "שיעור פיצוץ אסטרואיד ידוע בחשיבותו בגלל הסכנה היומיומית הנשקפת לכדור הארץ בלעדיו.",
         "עשרות אלפי אסטרואידים נעים ברגע זה לכיוון הכוכב שלנו, ועליכן לדעת כיצד למנוע מהם להגיע אליו.",
@@ -46,7 +46,7 @@ export default {
   methods: {
     nextPage() {
       this.page++;
-      this.astroidSrc = '/media/astroidExplostion/astroid.svg';
+      this.astroidSrc = './media/astroidExplostion/astroid.svg';
       setTimeout(() => {
         this.$emit("next-page");
       }, 2000);

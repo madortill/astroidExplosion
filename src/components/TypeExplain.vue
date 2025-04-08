@@ -49,14 +49,14 @@ export default {
         "אסטרואיד ממש גדול שיכול להשמיד את כל כדור הארץ",
       ],
       pic1Data: [
-        "/media/astroidType/baby-astro1.svg",
-        "/media/astroidType/teen-astro1.svg",
-        "/media/astroidType/big-astro1.svg",
+        "./media/astroidType/baby-astro1.svg",
+        "./media/astroidType/teen-astro1.svg",
+        "./media/astroidType/big-astro1.svg",
       ],
       pic2Data: [
-        "/media/astroidType/baby-astro2.svg",
-        "/media/astroidType/teen-astro2.svg",
-        "/media/astroidType/big-astro2.svg",
+        "./media/astroidType/baby-astro2.svg",
+        "./media/astroidType/teen-astro2.svg",
+        "./media/astroidType/big-astro2.svg",
       ],
     };
   },

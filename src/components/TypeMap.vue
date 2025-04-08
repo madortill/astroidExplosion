@@ -33,7 +33,7 @@ export default {
       visitedAll: false,
       astroids: ["baby", "teen", "big"],
       text: ["אסטרואיד בייבי", "אסטרואיד נער מתבגר", "אסטרואיד בוגר"],
-      src: ["/media/astroidType/baby-astro1-glow_1.svg", "/media/astroidType/teen-astro1-glow_1.svg", "/media/astroidType/big-astro1-glow_1.svg"],
+      src: ["./media/astroidType/baby-astro1-glow_1.svg", "./media/astroidType/teen-astro1-glow_1.svg", "./media/astroidType/big-astro1-glow_1.svg"],
       visited: [],
     };
   },
@@ -46,7 +46,7 @@ export default {
       this.infoShow = true;
       if (!this.visited.includes(event.currentTarget.classList)) {
         this.visited.push(event.currentTarget.classList);
-        this.src[event.currentTarget.id] = `/media/astroidType/${event.currentTarget.classList}-astro1.svg`;
+        this.src[event.currentTarget.id] = `./media/astroidType/${event.currentTarget.classList}-astro1.svg`;
       }
       if (this.visited.length > 2) {
         this.visitedAll = true;

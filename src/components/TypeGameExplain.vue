@@ -30,7 +30,7 @@ export default {
     return {
       astroids: ["baby", "teen", "big"],
       text: ["בייבי", "נער מתבגר", "בוגר"],
-      src: ["/media/astroidType/baby-toy.svg", "/media/astroidType/teen-ear.svg", "/media/astroidType/horn.svg"],
+      src: ["./media/astroidType/baby-toy.svg", "./media/astroidType/teen-ear.svg", "./media/astroidType/horn.svg"],
     };
   },
   methods: {

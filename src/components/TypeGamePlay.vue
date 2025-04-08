@@ -39,23 +39,23 @@ export default {
   components: {},
   data() {
     return {
-      time: 4,
+      time: 3,
       showAstro: true,
       playCount: 0,
       selected: "",
       yoda: "",
       astroidSrc: [
-        "/media/astroidType/teen-astro3.svg",
-        "/media/astroidType/baby-astro3.svg",
-        "/media/astroidType/big-astro3.svg",
+        "./media/astroidType/teen-astro3.svg",
+        "./media/astroidType/baby-astro3.svg",
+        "./media/astroidType/big-astro3.svg",
       ],
       astroidOrder: ["1", "0", "2"],
       astroids: ["baby", "teen", "big"],
       text: ["בייבי", "נער מתבגר", "בוגר"],
       src: [
-        "/media/astroidType/baby-toy.svg",
-        "/media/astroidType/teen-ear.svg",
-        "/media/astroidType/horn.svg",
+        "./media/astroidType/baby-toy.svg",
+        "./media/astroidType/teen-ear.svg",
+        "./media/astroidType/horn.svg",
       ],
     };
   },
@@ -70,11 +70,11 @@ export default {
       }
     },
     nextStep() {
-      if (this.playCount === 4) {
+      if (this.playCount === 3) {
         this.endGame();
       } else {
         this.showAstro = true;
-        this.time = 4;
+        this.time = 3;
       }
     },
     endGame() {
