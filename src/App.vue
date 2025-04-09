@@ -2,7 +2,7 @@
   <div id="app">
     <opening v-if="page === 0" v-show="!showMap" class="page" @next-section="page++"></opening>
     <astroid v-if="page === 1" v-show="!showMap" class="page" @next-section="page++" @to-map="toMap" @next-part="nextPart" :newPage="newPage"></astroid>
-    <final-exar v-if="page === 2" v-show="!showMap" class="page" @next-section="page++" @to-map="toMap"></final-exar>
+    <final-exar v-if="page === 2" v-show="!showMap" class="page" @next-section="page++" @to-map="toMap" @restart="restart"></final-exar>
     <map-dir v-if="showMap" class="page" :currStep="step" @close-map="showMap = false" @to-page="toPage"></map-dir>
   </div>
 </template>
@@ -40,6 +40,10 @@ export default {
       if (currPage > this.step) {
         this.step = currPage;
       }
+    },
+    restart() {
+      this.page = 0;
+      this.newPage = -1;
     }
   }
 };

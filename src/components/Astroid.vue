@@ -60,7 +60,7 @@ export default {
       this.$emit("to-map");
     },
     nextPage() {
-      if (this.page === 2) {
+      if (this.page === 3) {
         this.$emit("next-section");
       } else {
         this.page++;
