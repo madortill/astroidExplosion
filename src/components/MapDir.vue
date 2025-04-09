@@ -1,26 +1,47 @@
 <template>
   <div class="map-dir">
-    <p class="title">מפת הנושאים</p>
-    <p class="microcopy">לחצו על הנושא אליו תרצו לחזור</p>
-    <div
-      v-for="(star, index) in stars"
-      :key="index"
-      :class="star"
-      class="star-container"
-      @click="checkStar"
-    >
-      <img :src="`./media/map/star${index}.svg`" alt="star" class="star" :id="index" :class="currStep >= index ? 'glow' : ''"/>
-      <p class="text" :id="index">{{ text[index] }}</p>
+    <load-animation v-if="showAnimation" class="load"></load-animation>
+    <div class="map" v-else>
+      <p class="title">מפת הנושאים</p>
+      <p class="microcopy">לחצו על הנושא אליו תרצו לחזור</p>
+      <div
+        v-for="(star, index) in stars"
+        :key="index"
+        :class="star"
+        class="star-container"
+        @click="checkStar"
+      >
+        <img
+          :src="`./media/map/star${index}.svg`"
+          alt="star"
+          class="star"
+          :id="index"
+          :class="currStep >= index ? 'glow' : ''"
+        />
+        <p class="text" :id="index">{{ text[index] }}</p>
+      </div>
+      <button class="button" @click="closeMap">חזרה ללומדה!</button>
+      <div
+        class="bubble"
+        :style="{
+          top: topPosition[currStar] + 'rem',
+          right: rightPosition[currStar] + 'rem',
+        }"
+        v-if="wrongStar"
+      >
+        לפה עוד לא הגעתם
+      </div>
     </div>
-    <button class="button" @click="closeMap">חזרה ללומדה!</button>
-    <div class="bubble" :style="{ top: topPosition[currStar] + 'rem', right: rightPosition[currStar] + 'rem' }" v-if="wrongStar">לפה עוד לא הגעתם</div>
   </div>
 </template>
 
 <script>
+import LoadAnimation from "@/components/LoadAnimation.vue";
 export default {
   name: "map-dir",
-  components: {},
+  components: {
+    LoadAnimation,
+  },
   props: ["currStep"],
   data() {
     return {
@@ -33,26 +54,35 @@ export default {
       ],
       currStar: 0,
       wrongStar: false,
+      showAnimation: true,
       topPosition: [11, 18, 32, 40],
-      rightPosition: [4, 18, 2, 18], 
+      rightPosition: [4, 18, 2, 18],
     };
+  },
+  created() {
+    setTimeout(() => {
+      this.showAnimation = false;
+    }, 1100);
   },
   methods: {
     checkStar(event) {
-        if (this.currStep < event.target.id) {
-            this.currStar = event.target.id;
-            this.wrongStar = true;
-            setTimeout(() => {
-                this.wrongStar = false;
-            }, 1500);
-        } else {
-            this.$emit("to-page", event.target.id);
-            this.closeMap();
-        }
+      if (this.currStep < event.target.id) {
+        this.currStar = event.target.id;
+        this.wrongStar = true;
+        setTimeout(() => {
+          this.wrongStar = false;
+        }, 1500);
+      } else {
+        this.$emit("to-page", event.target.id);
+        this.closeMap();
+      }
     },
     closeMap() {
-        this.$emit("close-map");
-    }
+        this.showAnimation = true;
+        setTimeout(() => {
+            this.$emit("close-map");
+        }, 1100);
+    },
   },
 };
 </script>
@@ -110,10 +140,9 @@ export default {
 }
 
 .glow {
-    border-radius: 6rem; 
-    box-shadow: 0.2rem 0.2rem 1.5rem 0.2rem rgb(255, 255, 255);
+  border-radius: 6rem;
+  box-shadow: 0.2rem 0.2rem 1.5rem 0.2rem rgb(255, 255, 255);
 }
-
 
 .star-container {
   position: relative;
@@ -134,14 +163,21 @@ export default {
 }
 
 .bubble {
-    background-image: url(/src/assets/media/map/speech-bubble.svg);
-    height: 7rem;
-    width: 9rem;
-    position: absolute;
-    background-size: 100% 100%;
-    top: 10rem;
-    font-size: 1.4rem;
-    text-align: center;
-    padding-top: 2rem;
+  background-image: url(/src/assets/media/map/speech-bubble.svg);
+  height: 7rem;
+  width: 9rem;
+  position: absolute;
+  background-size: 100% 100%;
+  top: 10rem;
+  font-size: 1.4rem;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.load {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
 }
 </style>

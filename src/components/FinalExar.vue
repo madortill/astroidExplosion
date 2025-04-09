@@ -2,7 +2,8 @@
   <div class="final-exar">
     <final-start v-if="page === 0" @next-page="page++"></final-start>
     <final-explain v-if="page === 1" @next-page="page++"></final-explain>
-    <end-page v-if="page === 2" @restart="restart"></end-page>
+    <final-game v-if="page === 2" @next-page="page++"></final-game>
+    <end-page v-if="page === 3" @restart="restart"></end-page>
     <div class="map" @click="toMap" v-if="page < 2">
       <img
         class="map-icon"
@@ -17,12 +18,14 @@
 <script>
 import FinalStart from "@/components/FinalStart.vue";
 import FinalExplain from "@/components/FinalExplain.vue";
+import FinalGame from "@/components/FinalGame.vue";
 import EndPage from "@/components/EndPage.vue";
 export default {
   name: "final-exar",
   components: {
     FinalStart,
     FinalExplain,
+    FinalGame,
     EndPage
   },
   data() {
