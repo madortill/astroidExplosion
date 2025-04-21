@@ -2,7 +2,7 @@
   <div class="final-explain">
     <div class="background">
       <p class="title">הוראות</p>
-      <p class="text">כוונו את המשגר על ידי לחיצה על המשבצת בעלת הקורדינאטות הנכונות כפי שלמדתם על מנת לפגוע באסטרואיד ולהשמיד אותו</p>
+      <p class="text">כוונו את המשגר על ידי לחיצה על המשבצת שהקורדינאטות הנתונות נמצאות בפינה הימנית העליונה שלה על מנת לפגוע באסטרואיד ולהשמיד אותו</p>
       <button class="button" @click="nextPage">אני מוכן!</button>
       <img class="yoda" src="@/assets/media/app/yoda.svg" alt="yoda" />
     </div>
@@ -40,7 +40,7 @@ export default {
 }
 
 .text {
-  font-size: 2.6rem;
+  font-size: 2.5rem;
   text-align: center;
   margin-top: -0.05rem;
   position: relative;
@@ -58,7 +58,7 @@ export default {
   width: 34rem;
   height: 50rem;
   padding-top: 4rem;
-  background-image: url(src/assets/media/app/clear-div.svg);
+  background-image: url(@/assets/media/app/clear-div.svg);
   background-size: 100% 100%;
 }
 
@@ -73,12 +73,13 @@ export default {
   position: relative;
   right: 50%;
   transform: translateX(50%);
-  bottom: 13rem;
+  bottom: 15rem;
 }
 
 .yoda {
   height: 11rem;
   position: relative;
   right: 10rem;
+  bottom: 3rem;
 }
 </style>

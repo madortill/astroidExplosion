@@ -184,11 +184,11 @@ export default {
   border: none;
   border-radius: 0.3rem;
   font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  box-shadow: 3px 3px 5px black;
+  padding: 0.5rem 2rem;
+  box-shadow: 2px 2px 5px black;
   position: relative;
   right: 50%;
   transform: translateX(50%);
-  bottom: 19rem;
+  bottom: 32rem;
 }
 </style>
