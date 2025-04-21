@@ -78,7 +78,6 @@ export default {
       }
     },
     endGame() {
-      console.log("here");
       this.$emit("next-page");
     },
   },
