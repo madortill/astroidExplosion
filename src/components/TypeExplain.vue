@@ -107,7 +107,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding-top: 4rem;
-  background-image: url(src/assets/media/app/clear-div.svg);
+  background-image: url(@/assets/media/app/clear-div.svg);
   background-size: 100% 100%;
 }
 
